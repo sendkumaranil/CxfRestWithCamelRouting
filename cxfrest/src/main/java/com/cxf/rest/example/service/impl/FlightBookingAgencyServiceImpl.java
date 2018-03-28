@@ -1,13 +1,11 @@
 package com.cxf.rest.example.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cxf.rest.example.dao.HindustaniAirwaysDao;
 import com.cxf.rest.example.model.BookFlightRequest;
 import com.cxf.rest.example.model.BookingDetailsResponse;
 import com.cxf.rest.example.model.SearchFlightResponse;
-import com.cxf.rest.example.service.HindustaniAirwaysService;
+import com.cxf.rest.example.service.FlightBookingAgencyService;
 
 /**
  * 
@@ -15,19 +13,18 @@ import com.cxf.rest.example.service.HindustaniAirwaysService;
  *
  */
 @Service
-public class HindustaniAirwaysServiceImpl implements HindustaniAirwaysService {
+public class FlightBookingAgencyServiceImpl implements FlightBookingAgencyService {
 
-	@Autowired
-	private HindustaniAirwaysDao dao;
+	
 	
 	@Override
 	public SearchFlightResponse searchFlights(String source, String destination, String journeyDate) {
-		return dao.fetchFlights(source, destination, journeyDate);
+		return null;
 	}
 
 	@Override
 	public BookingDetailsResponse bookFlight(BookFlightRequest bookFlightRequest) throws Exception {
-		return dao.bookFlight(bookFlightRequest);
+		return null;
 	}
 
 }

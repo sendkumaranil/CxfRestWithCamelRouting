@@ -13,7 +13,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @Configuration
 @ComponentScan(basePackages="com.cxf.rest.example")
 @ImportResource({"classpath:cxf.xml"})
-public class HindustaniAirwaysConfig {
+public class FlightBookingAgencyConfig {
 
 	@Bean
 	PropertySourcesPlaceholderConfigurer propertyConfig() {

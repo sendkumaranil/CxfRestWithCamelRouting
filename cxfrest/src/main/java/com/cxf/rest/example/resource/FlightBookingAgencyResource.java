@@ -17,8 +17,8 @@ import com.cxf.rest.example.model.BookFlightRequest;
 import com.cxf.rest.example.model.BookingDetailsResponse;
 import com.cxf.rest.example.model.SearchFlightResponse;
 import com.cxf.rest.example.model.SourceDestinationList;
-import com.cxf.rest.example.service.HindustaniAirwaysService;
-import com.cxf.rest.example.util.HindustaniAirwaysValidator;
+import com.cxf.rest.example.service.FlightBookingAgencyService;
+import com.cxf.rest.example.util.FlightBookingAgencyValidator;
 /**
  * 
  * @author Anil Kumar
@@ -26,12 +26,12 @@ import com.cxf.rest.example.util.HindustaniAirwaysValidator;
  */
 @Resource
 @Path("/hindustani-airways")
-public class HindustaniAirwaysResource {
+public class FlightBookingAgencyResource {
 
 	@Autowired
-	private HindustaniAirwaysService service;
+	private FlightBookingAgencyService service;
 	@Autowired
-	private HindustaniAirwaysValidator validate;
+	private FlightBookingAgencyValidator validate;
 	
 	@GET
 	@Path("/search")

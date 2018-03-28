@@ -1,4 +1,4 @@
-package com.cxf.rest.example.dao;
+package com.cxf.rest.example.service;
 
 import org.springframework.stereotype.Component;
 
@@ -11,8 +11,8 @@ import com.cxf.rest.example.model.SearchFlightResponse;
  *
  */
 @Component
-public interface HindustaniAirwaysDao {
+public interface FlightBookingAgencyService {
 
-	public SearchFlightResponse fetchFlights(String source,String destination,String journeyDate);
+	public SearchFlightResponse searchFlights(String source,String destination,String journeyDate);
 	public BookingDetailsResponse bookFlight(BookFlightRequest bookFlightRequest) throws Exception;
 }

@@ -20,13 +20,13 @@
         </cxf:features>
     </cxf:bus>
 
-	<bean id="flightResource" class="com.cxf.rest.example.resource.HindustaniAirwaysResource"/>
+	<bean id="flightBookingResource" class="com.cxf.rest.example.resource.FlightBookingAgencyResource"/>
 	<bean id="jsonProvider" 
 		class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
 	
-  	<jaxrs:server id="hindairwaysrs" address="/rservice">
+  	<jaxrs:server id="flightbookingagency" address="/flightbooking">
   		<jaxrs:serviceBeans>
-  			<ref bean="flightResource"/>
+  			<ref bean="flightBookingResource"/>
   		</jaxrs:serviceBeans>
   		<jaxrs:providers>
 			<ref bean='jsonProvider' />
