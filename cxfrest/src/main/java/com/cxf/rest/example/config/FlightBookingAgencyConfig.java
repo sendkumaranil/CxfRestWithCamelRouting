@@ -12,7 +12,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
  */
 @Configuration
 @ComponentScan(basePackages="com.cxf.rest.example")
-@ImportResource({"classpath:cxf.xml"})
+@ImportResource({"classpath:cxf.xml","classpath:camel-config.xml"})
 public class FlightBookingAgencyConfig {
 
 	@Bean
