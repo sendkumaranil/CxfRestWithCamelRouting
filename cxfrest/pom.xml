@@ -7,16 +7,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Flight Booking Agency</name>  
   <properties>
-  	<spring.version>5.0.2.RELEASE</spring.version>
-  	<camel.version>2.3.0</camel.version>
+  	<spring.version>4.3.14.RELEASE</spring.version>
+  	<camel.version>2.18.3</camel.version>
   </properties>
   <dependencies>
- 		<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>3.8.1</version>
-		<scope>test</scope>
-	</dependency>
+ 		
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-core</artifactId>
@@ -61,12 +56,7 @@
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-aop</artifactId>
 		<version>${spring.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>org.springframework.security</groupId>
-		<artifactId>spring-security-core</artifactId>
-		<version>${spring.version}</version>
-	</dependency>
+	</dependency>	
 	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-jms</artifactId>
@@ -90,17 +80,17 @@
      <dependency>
 		<groupId>org.apache.cxf</groupId>
 		<artifactId>cxf-rt-frontend-jaxrs</artifactId>
-		<version>3.0.3</version>
+		<version>3.2.1</version>
 	</dependency>
 	<dependency>
 		<groupId>org.apache.cxf</groupId>
 		<artifactId>cxf-rt-transports-http</artifactId>
-		<version>3.0.3</version>
+		<version>3.2.1</version>
 	</dependency>		
 	<dependency>
 	    <groupId>org.apache.cxf</groupId>
 	    <artifactId>cxf-rt-transports-http-jetty</artifactId>
-	    <version>3.2.2</version>
+	    <version>3.2.1</version>
 	</dependency>
 	<dependency>
 	    <groupId>com.fasterxml.jackson.core</groupId>
@@ -158,7 +148,11 @@
 	    <artifactId>slf4j-api</artifactId>
 	    <version>1.7.25</version>
 	</dependency>
-		
+		<dependency>
+    <groupId>commons-logging</groupId>
+    <artifactId>commons-logging</artifactId>
+    <version>1.1.1</version>
+</dependency>
   </dependencies>
   <build>
 		<plugins>
