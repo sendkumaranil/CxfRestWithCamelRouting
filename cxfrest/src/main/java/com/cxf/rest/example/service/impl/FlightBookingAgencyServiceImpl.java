@@ -28,8 +28,8 @@ public class FlightBookingAgencyServiceImpl implements FlightBookingAgencyServic
 		flightRequest.setSource(source);
 		flightRequest.setDestination(destination);
 		flightRequest.setTravelDate(journeyDate);
-		
-		return template.requestBody("direct:moryaairlines", flightRequest, SearchFlightResponse.class);
+				
+		return template.requestBodyAndHeaders("direct:start", flightRequest, null,SearchFlightResponse.class);
 	}
 
 	@Override

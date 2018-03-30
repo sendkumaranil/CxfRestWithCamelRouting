@@ -1,10 +1,10 @@
 package com.cxf.rest.example.camel.transformer;
 
 import org.apache.camel.Exchange;
-
 import com.cxf.rest.example.model.SearchFlightRequest;
 import com.cxfsoap.example.resource.FlightDetailsRequest;
 import com.cxfsoap.example.resource.GetFlightDetails;
+
 
 public class SearchFlightRequestTransformer {
 
@@ -12,7 +12,7 @@ public class SearchFlightRequestTransformer {
 		exchange.getIn().setBody(createSearchFlightReqest(flightRequest));
 	}
 
-	private GetFlightDetails createSearchFlightReqest(SearchFlightRequest flightRequest) {
+	private FlightDetailsRequest createSearchFlightReqest(SearchFlightRequest flightRequest) {
 		
 		GetFlightDetails flightDetails =new GetFlightDetails();
 		
@@ -23,6 +23,6 @@ public class SearchFlightRequestTransformer {
 		
 		flightDetails.setArg0(flightDetailsRequest);
 		
-		return flightDetails;
+		return flightDetailsRequest;
 	}
 }

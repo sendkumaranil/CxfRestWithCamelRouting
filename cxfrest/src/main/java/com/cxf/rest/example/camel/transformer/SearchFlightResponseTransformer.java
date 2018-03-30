@@ -3,27 +3,31 @@ package com.cxf.rest.example.camel.transformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cxf.rest.example.camel.exception.ValidationException;
 import com.cxf.rest.example.model.SearchFlightDetails;
 import com.cxf.rest.example.model.SearchFlightResponse;
 import com.cxfsoap.example.resource.ErrorResponse;
 import com.cxfsoap.example.resource.FlightDetails;
 import com.cxfsoap.example.resource.FlightDetailsResponse;
-import com.cxfsoap.example.resource.GetFlightDetailsResponse;
 
 public class SearchFlightResponseTransformer {
 
-	public SearchFlightResponse searchFlightResponse(GetFlightDetailsResponse flightDetailsResponse) throws Exception {
+	public SearchFlightResponse searchFlightResponse(FlightDetailsResponse flightDetailsResponse) throws Exception {
 		SearchFlightResponse searchFlightResponse =new SearchFlightResponse();
 		List<SearchFlightDetails> searchFlightDetailslist=new ArrayList<>();
 		
-		FlightDetailsResponse detailsResponse=flightDetailsResponse.getReturn();
-		ErrorResponse errorResponse=detailsResponse.getFaultDetails();
+		List<FlightDetails> detailsResponse=flightDetailsResponse.getFlightdetails();
+		ErrorResponse errorResponse=flightDetailsResponse.getFaultDetails();
 		if(errorResponse!=null) {
-			throw new Exception(errorResponse.getErrorCode());
+			com.cxf.rest.example.model.ErrorResponse errResponse=new com.cxf.rest.example.model.ErrorResponse();
+			errResponse.setErrorCode(errorResponse.getErrorCode());
+			errResponse.setErrorDescription(errorResponse.getDescription());
+			errResponse.setSeverity(errorResponse.getErrSeverity().toString());
+			
+			//throw new ValidationException("Validation Exception Occurred:"+errorResponse.getDescription(),errResponse);
 		}
-		
-		List<FlightDetails> flightDetails=detailsResponse.getFlightdetails();
-		for(FlightDetails details:flightDetails) {
+				
+		for(FlightDetails details:detailsResponse) {
 			SearchFlightDetails searchFlightDetail =new SearchFlightDetails();
 			searchFlightDetail.setFlightId(details.getFlightId());
 			searchFlightDetail.setFlightName(details.getFlightName());

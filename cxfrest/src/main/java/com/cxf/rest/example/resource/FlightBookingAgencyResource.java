@@ -25,7 +25,6 @@ import com.cxf.rest.example.util.FlightBookingAgencyValidator;
  *
  */
 @Resource
-@Path("/hindustani-airways")
 public class FlightBookingAgencyResource {
 
 	@Autowired

@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "MoryaAirlinesImplService", targetNamespace = "http://cxfsoap.moryaairlines.com/", wsdlLocation = "file:/D:/moryaflights.wsdl")
+@WebServiceClient(name = "MoryaAirlinesImplService", targetNamespace = "http://cxfsoap.moryaairlines.com/", wsdlLocation = "http://localhost:8081/cxfsoap/moryaflights?wsdl")
 public class MoryaAirlinesImplService
     extends Service
 {
@@ -30,7 +30,7 @@ public class MoryaAirlinesImplService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("file:/D:/moryaflights.wsdl");
+            url = new URL("http://localhost:8081/cxfsoap/moryaflights?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

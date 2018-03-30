@@ -24,13 +24,17 @@
 	<bean id="jsonProvider" 
 		class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
 	
+	<!-- <bean id="apiExceptionProvider" 
+		class="com.cxf.rest.example.camel.provider.ApiExceptionProvider"/> -->
+		
   	<jaxrs:server id="flightbookingagency" address="/flightbooking">
   		<jaxrs:serviceBeans>
   			<ref bean="flightBookingResource"/>
   		</jaxrs:serviceBeans>
   		<jaxrs:providers>
 			<ref bean='jsonProvider' />
-		</jaxrs:providers>
+			<!-- <ref bean='apiExceptionProvider' /> -->
+		</jaxrs:providers>		
   	</jaxrs:server>
 
 </beans>

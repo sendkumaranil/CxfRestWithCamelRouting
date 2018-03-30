@@ -12,6 +12,8 @@
   <!-- We still need it for loading the CXFServlet -->
   <import resource="classpath:META-INF/cxf/cxf.xml"/>
    
+  <bean id="searchFlightRequestBean" class="com.cxf.rest.example.camel.transformer.SearchFlightRequestTransformer"/>
+  <bean id="searchFlightResponseBean" class="com.cxf.rest.example.camel.transformer.SearchFlightResponseTransformer"/>
   
   	<camelContext id="template" streamCache="true" xmlns="http://camel.apache.org/schema/spring" >
 		<camel:contextScan></camel:contextScan>
