@@ -29,12 +29,13 @@ public class FlightBookingAgencyServiceImpl implements FlightBookingAgencyServic
 		flightRequest.setDestination(destination);
 		flightRequest.setTravelDate(journeyDate);
 				
-		return template.requestBodyAndHeaders("direct:start", flightRequest, null,SearchFlightResponse.class);
+		return template.requestBodyAndHeaders("direct:searchflights", flightRequest, null,SearchFlightResponse.class);
 	}
 
 	@Override
 	public BookingDetailsResponse bookFlight(BookFlightRequest bookFlightRequest) throws Exception {
-		return null;
+		
+		return template.requestBodyAndHeaders("direct:bookflights", bookFlightRequest, null,BookingDetailsResponse.class);
 	}
 
 }

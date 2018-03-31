@@ -6,25 +6,31 @@ import java.util.List;
 import com.cxf.rest.example.camel.exception.ValidationException;
 import com.cxf.rest.example.model.SearchFlightDetails;
 import com.cxf.rest.example.model.SearchFlightResponse;
+import com.cxfsoap.example.resource.DestinationList;
 import com.cxfsoap.example.resource.ErrorResponse;
 import com.cxfsoap.example.resource.FlightDetails;
 import com.cxfsoap.example.resource.FlightDetailsResponse;
+import com.cxfsoap.example.resource.SourceList;
 
 public class SearchFlightResponseTransformer {
 
-	public SearchFlightResponse searchFlightResponse(FlightDetailsResponse flightDetailsResponse) throws Exception {
+	public SearchFlightResponse searchFlightResponse(FlightDetailsResponse flightDetailsResponse) throws ValidationException {
 		SearchFlightResponse searchFlightResponse =new SearchFlightResponse();
 		List<SearchFlightDetails> searchFlightDetailslist=new ArrayList<>();
 		
 		List<FlightDetails> detailsResponse=flightDetailsResponse.getFlightdetails();
 		ErrorResponse errorResponse=flightDetailsResponse.getFaultDetails();
+		List<String> sources=null;
+		List<String> destinations=null;
 		if(errorResponse!=null) {
-			com.cxf.rest.example.model.ErrorResponse errResponse=new com.cxf.rest.example.model.ErrorResponse();
-			errResponse.setErrorCode(errorResponse.getErrorCode());
-			errResponse.setErrorDescription(errorResponse.getDescription());
-			errResponse.setSeverity(errorResponse.getErrSeverity().toString());
-			
-			//throw new ValidationException("Validation Exception Occurred:"+errorResponse.getDescription(),errResponse);
+			if("INVALID_SOURCE_DESTINATION".equals(errorResponse.getErrorCode())) {
+				SourceList sourceList=flightDetailsResponse.getSourceList();
+				DestinationList destinationList=flightDetailsResponse.getDestinationList();
+				sources=sourceList.getSources();
+				destinations=destinationList.getDestinations();
+			}
+			throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
+					errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString(),sources,destinations);
 		}
 				
 		for(FlightDetails details:detailsResponse) {

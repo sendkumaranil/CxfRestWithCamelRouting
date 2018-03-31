@@ -3,11 +3,16 @@ package com.cxf.rest.example.model;
 import java.math.BigDecimal;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+
 @XmlRootElement(name="BookingDetails")
+@XmlType(propOrder= {"passengers","govtId","govtIdType","bookingDate",
+		"flightId","flightName","source","destination","depAirport",
+		"arrivalAirport","journeyDate","boardingTime","travelHours",
+		"bookingAmount","stop","stopageAirport","adults","children","description","bookingRecieptData"})
 public class BookingDetailsResponse {
-	
-	private String bookingId;
-	
+		
 	private BigDecimal bookingAmount;
 	
 	private String govtId;
@@ -36,14 +41,18 @@ public class BookingDetailsResponse {
 	
 	private String stopageAirport;
 	
-	private String stopageHours;
+	private String bookingRecieptData;
 	
-	public String getBookingId() {
-		return bookingId;
-	}
-	public void setBookingId(String bookingId) {
-		this.bookingId = bookingId;
-	}
+	private Integer adults;
+	
+	private Integer children;
+	
+	private String passengers;
+	
+	private String bookingDate;
+	
+	private String description;
+		
 	public BigDecimal getBookingAmount() {
 		return bookingAmount;
 	}
@@ -128,11 +137,41 @@ public class BookingDetailsResponse {
 	public void setStopageAirport(String stopageAirport) {
 		this.stopageAirport = stopageAirport;
 	}
-	public String getStopageHours() {
-		return stopageHours;
-	}
-	public void setStopageHours(String stopageHours) {
-		this.stopageHours = stopageHours;
-	}
 	
+	public String getBookingRecieptData() {
+		return bookingRecieptData;
+	}
+	public void setBookingRecieptData(String bookingRecieptData) {
+		this.bookingRecieptData = bookingRecieptData;
+	}
+	public Integer getAdults() {
+		return adults;
+	}
+	public void setAdults(Integer adults) {
+		this.adults = adults;
+	}
+	public Integer getChildren() {
+		return children;
+	}
+	public void setChildren(Integer children) {
+		this.children = children;
+	}
+	public String getPassengers() {
+		return passengers;
+	}
+	public void setPassengers(String passengers) {
+		this.passengers = passengers;
+	}
+	public String getBookingDate() {
+		return bookingDate;
+	}
+	public void setBookingDate(String bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }

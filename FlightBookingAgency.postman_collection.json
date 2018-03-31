@@ -1,0 +1,248 @@
+{
+	"id": "c0539b27-6191-4f82-a777-753a54cdac6a",
+	"name": "FlightBookingAgency",
+	"description": null,
+	"auth": null,
+	"events": null,
+	"variables": null,
+	"order": [
+		"ba2402e9-3f37-4047-898a-7982dffc8fe9",
+		"c4004645-884d-43dc-b379-7ffac484e44a",
+		"e0703226-ee8d-4361-9b57-a516c9b75954",
+		"fa9f8032-6928-4bc9-bbeb-daf87479344a",
+		"251ae8dc-c1e7-43ae-91ea-7e6c6228830c",
+		"b9b06d4f-ad88-442c-9353-67f07fbefeb9",
+		"4cbcf80a-7b93-44f9-bf8c-de20157e0c3e"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "251ae8dc-c1e7-43ae-91ea-7e6c6228830c",
+			"name": "Search Flight same source destination error response",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/search?source=delhi&destination=delhi&travel_date=24-05-2018",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "source",
+					"value": "delhi",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "destination",
+					"value": "delhi",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "travel_date",
+					"value": "24-05-2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "4cbcf80a-7b93-44f9-bf8c-de20157e0c3e",
+			"name": "Booking Flight Invalid Date format error response",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/booking",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"flightId\":\"MORDELBANG001\",\n\t\"travelDate\":\"25/05/2018\",\n\t\"passengerGovtid\":\"ADKSK7835M\",\n\t\"idType\":\"PAN\",\n\t\"adults\":2,\n\t\"children\":0,\n\t\"totalFare\":4675.00,\n\t\"travelClass\":\"Economic\",\n\t\"passengerList\":[\n\t\t\"Anil Verma\",\n\t\t\"Priya Verma\"\n\t]\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b9b06d4f-ad88-442c-9353-67f07fbefeb9",
+			"name": "Booking Flight Invalid Flight Id error response",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/booking",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"flightId\":\"MORDELBANG0012\",\n\t\"travelDate\":\"25-05-2018\",\n\t\"passengerGovtid\":\"ADKSK7835M\",\n\t\"idType\":\"PAN\",\n\t\"adults\":2,\n\t\"children\":0,\n\t\"totalFare\":4675.00,\n\t\"travelClass\":\"Economic\",\n\t\"passengerList\":[\n\t\t\"Anil Verma\",\n\t\t\"Priya Verma\"\n\t]\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba2402e9-3f37-4047-898a-7982dffc8fe9",
+			"name": "Search Flight Request",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/search?source=delhi&destination=bangalore&travel_date=24-05-2018",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "source",
+					"value": "delhi",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "destination",
+					"value": "bangalore",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "travel_date",
+					"value": "24-05-2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "c4004645-884d-43dc-b379-7ffac484e44a",
+			"name": "Booking Flight Request",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/booking",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\n\t\"flightId\":\"MORDELBANG001\",\n\t\"travelDate\":\"25-05-2018\",\n\t\"passengerGovtid\":\"ADKSK7835M\",\n\t\"idType\":\"PAN\",\n\t\"adults\":2,\n\t\"children\":0,\n\t\"totalFare\":4675.00,\n\t\"travelClass\":\"Economic\",\n\t\"passengerList\":[\n\t\t\"Anil Verma\",\n\t\t\"Priya Verma\"\n\t]\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e0703226-ee8d-4361-9b57-a516c9b75954",
+			"name": "Saerch Flight Invalid date format error response",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/search?source=delhi&destination=bangalore&travel_date=24/05/2018",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "source",
+					"value": "delhi",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "destination",
+					"value": "bangalore",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "travel_date",
+					"value": "24/05/2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "fa9f8032-6928-4bc9-bbeb-daf87479344a",
+			"name": "Search Flight Invalid source or destination error response",
+			"url": " http://localhost:8080/flightbookingagency/flightbooking/search?source=punjab&destination=bangalore&travel_date=24-05-2018",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "source",
+					"value": "punjab",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "destination",
+					"value": "bangalore",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "travel_date",
+					"value": "24-05-2018",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}

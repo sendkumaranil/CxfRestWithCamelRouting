@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+
+import com.cxf.rest.example.model.ErrorResponse;
 /**
  * 
  * @author Anil Kumar
@@ -21,5 +23,10 @@ public class FlightBookingAgencyConfig {
 	PropertySourcesPlaceholderConfigurer propertyConfig() {
 		
 		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	@Bean
+	ErrorResponse errorResponse() {
+		return new ErrorResponse();
 	}
 }

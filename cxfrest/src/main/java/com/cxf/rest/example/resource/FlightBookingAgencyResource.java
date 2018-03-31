@@ -16,9 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.cxf.rest.example.model.BookFlightRequest;
 import com.cxf.rest.example.model.BookingDetailsResponse;
 import com.cxf.rest.example.model.SearchFlightResponse;
-import com.cxf.rest.example.model.SourceDestinationList;
 import com.cxf.rest.example.service.FlightBookingAgencyService;
-import com.cxf.rest.example.util.FlightBookingAgencyValidator;
 /**
  * 
  * @author Anil Kumar
@@ -29,9 +27,7 @@ public class FlightBookingAgencyResource {
 
 	@Autowired
 	private FlightBookingAgencyService service;
-	@Autowired
-	private FlightBookingAgencyValidator validate;
-	
+		
 	@GET
 	@Path("/search")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -39,14 +35,9 @@ public class FlightBookingAgencyResource {
 			@QueryParam("destination") String destination,@QueryParam("travel_date") String journeyDate) {
 		
 		SearchFlightResponse response=null;
-		SourceDestinationList sourceDestinationList =validate.validateSourceDestination(source, destination);
 		
-		if(sourceDestinationList == null) {
-			response=service.searchFlights(source, destination, journeyDate);
-			return Response.ok().entity(response).build();
-		}else {
-			return Response.ok(Status.BAD_REQUEST).entity(sourceDestinationList).build();
-		}
+		response=service.searchFlights(source, destination, journeyDate);
+		return Response.ok().entity(response).build();
 	}
 	
 	@POST
