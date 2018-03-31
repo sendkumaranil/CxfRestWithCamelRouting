@@ -21,21 +21,27 @@ public class BookFlightResponseTransformer {
 		
 		BookingDetailsResponse response =new BookingDetailsResponse();
 		
-		ErrorResponse errorResponse=detailsResponse.getFault();
-		if(errorResponse!=null) {
-			
-			throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
-					errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString(),null,null);
-		}
-						
+		handleErrorResponse(detailsResponse);
+								
 		populateBookingDetailsResponse(detailsResponse,response);
+		
 		try {
 			pupolateSoapAttachmentData(detailsResponse,response,exchange);
 		} catch (IOException e) {
-			throw new ValidationException(e.getMessage(),null,null,null,null,null);
+			throw new ValidationException(e.getMessage());
 		}
 				
 		return response;
+	}
+	
+	private void handleErrorResponse(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse) throws ValidationException {
+
+		ErrorResponse errorResponse=detailsResponse.getFault();
+		if(errorResponse!=null) {
+						
+			throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
+					errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString());
+		}		
 	}
 
 	private void pupolateSoapAttachmentData(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse,

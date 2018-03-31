@@ -18,21 +18,10 @@ public class SearchFlightResponseTransformer {
 		SearchFlightResponse searchFlightResponse =new SearchFlightResponse();
 		List<SearchFlightDetails> searchFlightDetailslist=new ArrayList<>();
 		
+		handleErrorResponse(flightDetailsResponse);
+		
 		List<FlightDetails> detailsResponse=flightDetailsResponse.getFlightdetails();
-		ErrorResponse errorResponse=flightDetailsResponse.getFaultDetails();
-		List<String> sources=null;
-		List<String> destinations=null;
-		if(errorResponse!=null) {
-			if("INVALID_SOURCE_DESTINATION".equals(errorResponse.getErrorCode())) {
-				SourceList sourceList=flightDetailsResponse.getSourceList();
-				DestinationList destinationList=flightDetailsResponse.getDestinationList();
-				sources=sourceList.getSources();
-				destinations=destinationList.getDestinations();
-			}
-			throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
-					errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString(),sources,destinations);
-		}
-				
+						
 		for(FlightDetails details:detailsResponse) {
 			SearchFlightDetails searchFlightDetail =new SearchFlightDetails();
 			searchFlightDetail.setFlightId(details.getFlightId());
@@ -55,5 +44,26 @@ public class SearchFlightResponseTransformer {
 		searchFlightResponse.setFlightDetails(searchFlightDetailslist);
 		
 		return searchFlightResponse;
+	}
+
+	private void handleErrorResponse(FlightDetailsResponse flightDetailsResponse) throws ValidationException {
+		ErrorResponse errorResponse=flightDetailsResponse.getFaultDetails();
+		List<String> sources=null;
+		List<String> destinations=null;
+		if(errorResponse!=null) {
+			if("INVALID_SOURCE_DESTINATION".equals(errorResponse.getErrorCode())) {
+				
+				SourceList sourceList=flightDetailsResponse.getSourceList();
+				DestinationList destinationList=flightDetailsResponse.getDestinationList();
+				sources=sourceList.getSources();
+				destinations=destinationList.getDestinations();
+				
+				throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
+						errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString(),sources,destinations);
+			}else {
+				throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
+						errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString());
+			}			
+		}		
 	}
 }

@@ -17,6 +17,14 @@ public class ValidationException extends Exception {
 	private final List<String> sources;
 	private final List<String> destinations;
 	
+	public ValidationException() {
+		this.description=null;
+		this.errorCode=null;
+		this.severity=null;		
+		this.sources=null;
+		this.destinations=null;		
+	}
+	
 	public ValidationException(@Value("") String message,@Value("desc") String description,
 			@Value("") String errorCode,@Value("") String severity,@Value("") List<String> sources,@Value("") List<String> destinations) {
 		super(message);
@@ -27,6 +35,25 @@ public class ValidationException extends Exception {
 		this.destinations=destinations;
 	}
 
+	public ValidationException(@Value("") String message,@Value("") String description,
+			@Value("") String errorCode,@Value("") String severity) {
+		super(message);
+		this.description=description;
+		this.errorCode=errorCode;
+		this.severity=severity;		
+		this.sources=null;
+		this.destinations=null;
+	}
+	
+	public ValidationException(@Value("") String message) {
+		super(message);
+		this.description=null;
+		this.errorCode=null;
+		this.severity=null;		
+		this.sources=null;
+		this.destinations=null;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
