@@ -42,25 +42,25 @@ public class MoryaAirlinesImplService
         super(__getWsdlLocation(), MORYAAIRLINESIMPLSERVICE_QNAME);
     }
 
-   /* public MoryaAirlinesImplService(WebServiceFeature... features) {
+    public MoryaAirlinesImplService(WebServiceFeature... features) {
         super(__getWsdlLocation(), MORYAAIRLINESIMPLSERVICE_QNAME, features);
-    }*/
+    }
 
     public MoryaAirlinesImplService(URL wsdlLocation) {
         super(wsdlLocation, MORYAAIRLINESIMPLSERVICE_QNAME);
     }
 
-    /*public MoryaAirlinesImplService(URL wsdlLocation, WebServiceFeature... features) {
+    public MoryaAirlinesImplService(URL wsdlLocation, WebServiceFeature... features) {
         super(wsdlLocation, MORYAAIRLINESIMPLSERVICE_QNAME, features);
-    }*/
+    }
 
     public MoryaAirlinesImplService(URL wsdlLocation, QName serviceName) {
         super(wsdlLocation, serviceName);
     }
 
-   /* public MoryaAirlinesImplService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
+    public MoryaAirlinesImplService(URL wsdlLocation, QName serviceName, WebServiceFeature... features) {
         super(wsdlLocation, serviceName, features);
-    }*/
+    }
 
     /**
      * 

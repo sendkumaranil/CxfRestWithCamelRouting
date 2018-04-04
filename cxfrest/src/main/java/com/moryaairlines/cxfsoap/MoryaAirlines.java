@@ -33,9 +33,9 @@ public interface MoryaAirlines {
      * @param arg0
      * @return
      *     returns com.cxfsoap.example.resource.BookingDetailsResponse
+     * @throws IOException
      * @throws DocumentException
      * @throws ParseException
-     * @throws IOException
      */
     @WebMethod
     @WebResult(targetNamespace = "")

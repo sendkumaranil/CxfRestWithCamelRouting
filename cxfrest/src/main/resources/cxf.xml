@@ -25,7 +25,7 @@
 		class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
 	
 	<bean id="apiExceptionProvider" 
-		class="com.cxf.rest.example.camel.provider.ApiExceptionProvider"/>
+		class="com.cxf.rest.example.provider.ApiExceptionProvider"/>
 		
   	<jaxrs:server id="flightbookingagency" address="/flightbooking">
   		<jaxrs:serviceBeans>

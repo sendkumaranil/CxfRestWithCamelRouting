@@ -30,6 +30,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="totalFare" type="{http://www.w3.org/2001/XMLSchema}decimal" minOccurs="0"/>
  *         &lt;element name="travelClass" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="departDate" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="source" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="destination" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="boardingAirport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="arrivalAirport" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="stops" type="{http://www.w3.org/2001/XMLSchema}int" minOccurs="0"/>
@@ -61,6 +63,8 @@ import javax.xml.bind.annotation.XmlType;
     "totalFare",
     "travelClass",
     "departDate",
+    "source",
+    "destination",
     "boardingAirport",
     "arrivalAirport",
     "stops",
@@ -85,6 +89,8 @@ public class BookingDetailsResponse {
     protected BigDecimal totalFare;
     protected String travelClass;
     protected String departDate;
+    protected String source;
+    protected String destination;
     protected String boardingAirport;
     protected String arrivalAirport;
     protected Integer stops;
@@ -336,6 +342,54 @@ public class BookingDetailsResponse {
      */
     public void setDepartDate(String value) {
         this.departDate = value;
+    }
+
+    /**
+     * Gets the value of the source property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * Sets the value of the source property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSource(String value) {
+        this.source = value;
+    }
+
+    /**
+     * Gets the value of the destination property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDestination() {
+        return destination;
+    }
+
+    /**
+     * Sets the value of the destination property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDestination(String value) {
+        this.destination = value;
     }
 
     /**

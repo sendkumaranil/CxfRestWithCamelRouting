@@ -10,14 +10,14 @@ import javax.activation.DataHandler;
 
 import org.apache.camel.Exchange;
 
-import com.cxf.rest.example.camel.exception.ValidationException;
+import com.cxf.rest.example.exception.ValidationException;
 import com.cxf.rest.example.model.BookingDetailsResponse;
 import com.cxfsoap.example.resource.ErrorResponse;
 import com.cxfsoap.example.resource.PassengerList;
 
 public class BookFlightResponseTransformer {
 
-	public BookingDetailsResponse bookFlightResponse(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse,Exchange exchange) throws ValidationException {
+	public BookingDetailsResponse bookFlightResponse(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse,Exchange exchange) {
 		
 		BookingDetailsResponse response =new BookingDetailsResponse();
 		
@@ -34,11 +34,11 @@ public class BookFlightResponseTransformer {
 		return response;
 	}
 	
-	private void handleErrorResponse(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse) throws ValidationException {
+	private void handleErrorResponse(com.cxfsoap.example.resource.BookingDetailsResponse detailsResponse)  {
 
 		ErrorResponse errorResponse=detailsResponse.getFault();
 		if(errorResponse!=null) {
-						
+					
 			throw new ValidationException(errorResponse.getDescription(),errorResponse.getDescription(),
 					errorResponse.getErrorCode(),errorResponse.getErrSeverity().toString());
 		}		
@@ -65,6 +65,8 @@ public class BookFlightResponseTransformer {
 		response.setFlightName(detailsResponse.getFlightName());
 		response.setBoardingTime(detailsResponse.getDeptTime());
 		response.setJourneyDate(detailsResponse.getDepartDate());
+		response.setSource(detailsResponse.getSource());
+		response.setDestination(detailsResponse.getDestination());
 		response.setArrivalAirport(detailsResponse.getArrivalAirport());
 		response.setDepAirport(detailsResponse.getBoardingAirport());
 		response.setTravelHours(detailsResponse.getDuration());
@@ -92,6 +94,7 @@ public class BookFlightResponseTransformer {
 		response.setGovtIdType(detailsResponse.getGovtIdentityType());
 		response.setBookingDate(detailsResponse.getBookingDate());
 		response.setDescription(detailsResponse.getDescription());
+		response.setDocPassword("Please enter your govtdid in CAPSLOCK for open bill reciept document");
 	}
 	
 }

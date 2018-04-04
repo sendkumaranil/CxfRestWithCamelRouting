@@ -3,7 +3,7 @@ package com.cxf.rest.example.camel.transformer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cxf.rest.example.camel.exception.ValidationException;
+import com.cxf.rest.example.exception.ValidationException;
 import com.cxf.rest.example.model.SearchFlightDetails;
 import com.cxf.rest.example.model.SearchFlightResponse;
 import com.cxfsoap.example.resource.DestinationList;
@@ -14,7 +14,7 @@ import com.cxfsoap.example.resource.SourceList;
 
 public class SearchFlightResponseTransformer {
 
-	public SearchFlightResponse searchFlightResponse(FlightDetailsResponse flightDetailsResponse) throws ValidationException {
+	public SearchFlightResponse searchFlightResponse(FlightDetailsResponse flightDetailsResponse)  {
 		SearchFlightResponse searchFlightResponse =new SearchFlightResponse();
 		List<SearchFlightDetails> searchFlightDetailslist=new ArrayList<>();
 		
@@ -46,7 +46,7 @@ public class SearchFlightResponseTransformer {
 		return searchFlightResponse;
 	}
 
-	private void handleErrorResponse(FlightDetailsResponse flightDetailsResponse) throws ValidationException {
+	private void handleErrorResponse(FlightDetailsResponse flightDetailsResponse)  {
 		ErrorResponse errorResponse=flightDetailsResponse.getFaultDetails();
 		List<String> sources=null;
 		List<String> destinations=null;

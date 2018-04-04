@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(propOrder= {"passengers","govtId","govtIdType","bookingDate",
 		"flightId","flightName","source","destination","depAirport",
 		"arrivalAirport","journeyDate","boardingTime","travelHours",
-		"bookingAmount","stop","stopageAirport","adults","children","description","bookingRecieptData"})
+		"bookingAmount","stop","stopageAirport","adults","children","docPassword","description","bookingRecieptData"})
 public class BookingDetailsResponse {
 		
 	private BigDecimal bookingAmount;
@@ -53,6 +53,8 @@ public class BookingDetailsResponse {
 	
 	private String description;
 		
+	private String docPassword;
+	
 	public BigDecimal getBookingAmount() {
 		return bookingAmount;
 	}
@@ -173,5 +175,11 @@ public class BookingDetailsResponse {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getDocPassword() {
+		return docPassword;
+	}
+	public void setDocPassword(String docPassword) {
+		this.docPassword = docPassword;
 	}
 }

@@ -61,12 +61,12 @@ public class PassengerList {
      */
     public List<String> getName() {
         if (name == null) {
-            name = new ArrayList<>();
+            name = new ArrayList<String>();
         }
         return this.name;
     }
-
-    public void setName(List<String> name) {
-    	this.name=name;
+    
+    public void setName(List<String> names) {
+    	this.name=names;
     }
 }

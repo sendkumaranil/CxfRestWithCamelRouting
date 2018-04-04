@@ -16,6 +16,10 @@ public class IOException
 {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 10909L;
+	/**
      * Java type that goes as soapenv:Fault detail element.
      * 
      */

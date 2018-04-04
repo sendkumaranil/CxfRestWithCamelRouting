@@ -16,6 +16,10 @@ public class ParseException
 {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 12345678L;
+	/**
      * Java type that goes as soapenv:Fault detail element.
      * 
      */

@@ -16,6 +16,10 @@ public class DocumentException
 {
 
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1009L;
+	/**
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
